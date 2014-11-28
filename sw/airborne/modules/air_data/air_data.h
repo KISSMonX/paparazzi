@@ -67,10 +67,12 @@ extern void air_data_init(void);
  */
 extern void air_data_periodic(void);
 
-/** Return AMSL (altitude AboveSeaLevel).
+/** Return AMSL (altitude AboveSeaLevel) in meters.
  * If AMSL from baro is valid, return that, otherwise from gps.
  */
 extern float air_data_get_amsl(void);
+
+#define GetAmslFt() (air_data_get_amsl() * 3.28084)
 
 /**
  * Calculate equivalent airspeed from dynamic pressure.
